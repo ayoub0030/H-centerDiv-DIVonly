@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centered Div</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #6e8efb, #a777e3);
+            font-family: Arial, sans-serif;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Guide lines */
+        body::before,
+        body::after {
+            content: '';
+            position: absolute;
+            pointer-events: none;
+        }
+
+        body::before {
+            width: 1px;
+            height: 100%;
+            left: 50%;
+            border-left: 2px dashed rgba(255, 255, 255, 0.3);
+        }
+
+        body::after {
+            width: 100%;
+            height: 1px;
+            top: 50%;
+            border-top: 2px dashed rgba(255, 255, 255, 0.3);
+        }
+
+        .centered-div {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            max-width: 400px;
+        }
+
+        .centered-div:hover {
+            transform: scale(1.02);
+        }
+
+        .message {
+            font-size: 1.2rem;
+            color: #333;
+            line-height: 1.4;
+        }
+    </style>
+</head>
+<body>
+    <div class="centered-div">
+        <p class="message">"I'm so centered, even monks ask me for tips!" 😌</p>
+    </div>
+
+    <script>
+        const messages = [
+            "I'm so centered, even monks ask me for tips! 😌",
+            "It took you 3 hours to put me here... worth it? 😏",
+            "Look at me—perfectly centered, unlike your life decisions. 🤭",
+            "I'm the flex in your flexbox... and the reason you're crying. 😂",
+            "Centered? Obviously. Aligned? More than your relationship. 💅",
+            "I'm not just centered. I'm the CENTER of your attention. 🤩",
+            "Here I am, perfectly centered. Now go fix the rest of the page! 😜",
+            "You finally did it. I'm centered. But at what cost? 😢",
+            "Bow down to the div-master. I'm what legends are made of. 👑",
+            "Flexbox made me flawless. You? Not so much. 🕺"
+        ];
+
+        let currentIndex = 0;
+        const messageElement = document.querySelector('.message');
+        const centeredDiv = document.querySelector('.centered-div');
+
+        centeredDiv.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % messages.length;
+            messageElement.textContent = messages[currentIndex];
+        });
+    </script>
+</body>
+</html>
